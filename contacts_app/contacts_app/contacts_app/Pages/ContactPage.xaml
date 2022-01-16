@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="contacts_app.Pages.ContactPage"
+             NavigationPage.HasNavigationBar="False"
+             BackgroundColor="#1f1d1d">
+    <ContentPage.Content>
+        <StackLayout>
+            <Grid Padding="0,5,0,10">
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <ImageButton Grid.Row="0" Grid.Column="0" Source="back.png" HeightRequest="44" WidthRequest="44" BackgroundColor="Transparent" HorizontalOptions="Start" Command="{Binding BackCommand}"/>
+                <StackLayout Grid.Row="0" Grid.Column="1" Orientation="Horizontal" HorizontalOptions="End">
+                    <ImageButton Source="edit.png" HeightRequest="30" WidthRequest="30" BackgroundColor="Transparent" HorizontalOptions="End" Margin="0,0,10,0" Command="{Binding EditContactCommand}"/>
+                    <ImageButton Source="trash.png" HeightRequest="32" WidthRequest="32" BackgroundColor="Transparent" HorizontalOptions="End" Margin="0,0,10,0" Command="{Binding RemoveContactCommand}"/>
+                </StackLayout>
+            </Grid>
+
+            <StackLayout HorizontalOptions="Center">
+                <Image Source="user.png" HeightRequest="128" WidthRequest="128" Margin="30"/>
+            </StackLayout>
+
+            <StackLayout Orientation="Vertical" HorizontalOptions="Center">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <Label Grid.Column="0" Grid.Row="0" Text="Imię:" FontSize="20" TextColor="#929292" Margin="10" HorizontalOptions="End"/>
+                    <Label Grid.Column="1" Grid.Row="0" Text="{Binding Contact.FirstName}" FontSize="20" TextColor="#929292" Margin="10" HorizontalOptions="Start"/>
+                    <Label Grid.Column="0" Grid.Row="1" Text="Nazwisko:" FontSize="20" TextColor="#929292" Margin="10" HorizontalOptions="End"/>
+                    <Label Grid.Column="1" Grid.Row="1" Text="{Binding Contact.Surname}" FontSize="20" TextColor="#929292" Margin="10" HorizontalOptions="Start"/>
+                    <Label Grid.Column="0" Grid.Row="2" Text="Numer:" FontSize="20" TextColor="#929292" Margin="10" HorizontalOptions="End"/>
+                    <Label Grid.Column="1" Grid.Row="2" Text="{Binding Contact.Number}" FontSize="20" TextColor="#929292" Margin="10" HorizontalOptions="Start"/>
+                </Grid>
+            </StackLayout>
+            
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

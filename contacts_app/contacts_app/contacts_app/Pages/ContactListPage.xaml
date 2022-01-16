@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="contacts_app.Pages.ContactListPage"
+             NavigationPage.HasNavigationBar="False"
+             BackgroundColor="#1f1d1d">
+    <ContentPage.Content>
+        <StackLayout VerticalOptions="FillAndExpand">
+            <StackLayout Orientation="Horizontal" HorizontalOptions="Center" Padding="0,20,0,20" HeightRequest="30">
+                <StackLayout.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding AddContactCommand}"/>
+                </StackLayout.GestureRecognizers>
+                <Image Source="user_add.png" HeightRequest="25" WidthRequest="25" Margin="0,0,5,0" VerticalOptions="Center"/>
+                <Label Text="Utwórz nowy kontakt" FontSize="25" TextColor="#9ab7e5" VerticalOptions="Center"/>
+            </StackLayout>
+            <StackLayout VerticalOptions="FillAndExpand">
+                <ListView 
+                          IsVisible="{Binding ContactListIsNotEmpty}"
+                          ItemsSource="{Binding Contacts}"
+                          SelectedItem="{Binding SelectedContact}" 
+                          RowHeight="80" 
+                          SeparatorColor="#9ab7e5">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <StackLayout Orientation="Horizontal" Padding="0,10,0,10">
+                                    <StackLayout Margin="10,0,10,0">
+                                        <Image Source="user.png" HeightRequest="50" WidthRequest="50" HorizontalOptions="Center" VerticalOptions="Center"/>
+                                    </StackLayout>
+                                    <StackLayout Orientation="Vertical">
+                                        <StackLayout Orientation="Horizontal">
+                                            <Label Text="{Binding FirstName}" FontSize="20" TextColor="#929292"/>
+                                            <Label Text="{Binding Surname}" FontSize="20" TextColor="#929292"/>
+                                        </StackLayout>
+                                        <StackLayout>
+                                            <Label Text="{Binding Number}" FontSize="18" TextColor="#cacaca"/>
+                                        </StackLayout>
+                                    </StackLayout>
+                                </StackLayout>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

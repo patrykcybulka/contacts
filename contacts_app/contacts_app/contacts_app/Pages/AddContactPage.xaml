@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:contacts_app.CustomControls"
+             x:Class="contacts_app.Pages.AddContactPage"
+             NavigationPage.HasNavigationBar="False"
+             BackgroundColor="#1f1d1d">
+    <ContentPage.Content>
+        <StackLayout>
+            <StackLayout Orientation="Horizontal" Padding="0,5,0,10">
+                <ImageButton Source="back.png" HeightRequest="44" WidthRequest="44" BackgroundColor="Transparent" VerticalOptions="Center" HorizontalOptions="Start" Command="{Binding BackCommand}"/>
+                <Label Text="Tworznie nowego kontaktu" Grid.Row="0" Grid.Column="1" VerticalOptions="Center" HorizontalOptions="Fill" FontSize="25" TextColor="#9ab7e5"/>
+            </StackLayout>
+
+            <StackLayout HorizontalOptions="Center">
+                <Image Source="user.png" HeightRequest="128" WidthRequest="128" Margin="30"/>
+            </StackLayout>
+
+            <StackLayout Orientation="Horizontal" HorizontalOptions="Center" Margin="0,0,0,10">
+                <Label WidthRequest="95" Text="Imię:" FontSize="20" TextColor="#929292" VerticalOptions="Center"/>
+                <local:CustomEntry WidthRequest="150" Text="{Binding Contact.FirstName}" FontSize="20" VerticalOptions="Center" MaxLength="12"/>
+            </StackLayout>
+            <StackLayout Orientation="Horizontal" HorizontalOptions="Center" Margin="0,0,0,10">
+                <Label WidthRequest="95" Text="Nazwisko:" FontSize="20" TextColor="#929292" VerticalOptions="Center"/>
+                <local:CustomEntry WidthRequest="150" Text="{Binding Contact.Surname}" FontSize="20" VerticalOptions="Center" MaxLength="12"/>
+            </StackLayout>
+            <StackLayout Orientation="Horizontal" HorizontalOptions="Center" Margin="0,0,0,10">
+                <Label WidthRequest="95" Text="Numer:" FontSize="20" TextColor="#929292" VerticalOptions="Center"/>
+                <local:CustomEntry WidthRequest="150" Text="{Binding Contact.Number}" FontSize="20" VerticalOptions="Center" PlaceholderColor="#9ab7e5" MaxLength="12"/>
+            </StackLayout>
+
+            <Button Text="Dodaj" FontAttributes="Bold" WidthRequest="200" HorizontalOptions="Center" BackgroundColor="#9ab7e5" Command="{Binding CreateContact}"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
